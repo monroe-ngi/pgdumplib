@@ -489,6 +489,9 @@ class Dump:
         :param int dump_id: The dump ID for the filename
 
         """
+        if self.version >= (1, 16, 0):
+            raise Exception("v1.16.0 does yet support blobs")
+
         count = 0
         with self._tempfile(dump_id, 'wb') as handle:
             for oid, blob in self._read_blobs():
@@ -658,6 +661,10 @@ class Dump:
             tableam = self._read_bytes().decode(self.encoding)
         else:
             tableam = ''
+        if self.version >= (1, 16, 0):
+            relkind = self._read_int()
+        else:
+            relkind = 0
         owner = self._read_bytes().decode(self.encoding)
         with_oids = self._read_bytes() == b'true'
         dependencies = self._read_dependencies()

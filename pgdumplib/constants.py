@@ -9,7 +9,8 @@ K_VERSION_MAP = {
     ((9, 0, 0), (10, 2)): (1, 12, 0),
     ((10, 3), (11, 99)): (1, 13, 0),
     ((12, 0), (15, 99)): (1, 14, 0),
-    ((16, 0), (99, 99)): (1, 15, 0)
+    ((16, 0), (16, 99)): (1, 15, 0),
+    ((17, 0), (99, 99)): (1, 16, 0),
 }
 
 BLK_DATA: bytes = b'\x01'
@@ -54,7 +55,7 @@ MAGIC: bytes = b'PGDMP'
 MIN_VER: tuple[int, int, int] = (1, 12, 0)
 """The minumum supported version of pg_dump files ot support"""
 
-MAX_VER: tuple[int, int, int] = (1, 15, 0)
+MAX_VER: tuple[int, int, int] = (1, 16, 0)
 """The maximum supported version of pg_dump files ot support"""
 
 PGDUMP_STRFTIME_FMT: str = '%Y-%m-%d %H:%M:%S %Z'
